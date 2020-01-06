@@ -1,24 +1,22 @@
 # admin_
 
-## Project setup
+## Project setup 初始化
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development 运行
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies for production  生产
 ```
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+简简单单的小demo
 
-### Customize configuration
+
+### Customize configuration  详细配置
 See [Configuration Reference](https://cli.vuejs.org/config/).
