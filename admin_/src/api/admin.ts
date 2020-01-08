@@ -30,6 +30,12 @@ export const delProduct = (data: any, config?: any) => {
 };
 
 
+//删除商品
+export const updateProduct = (data: any, config?: any) => {
+    return Axios.post(`${BaseUrl}work/work/updateProduct`, data, config).then(res => res.data)
+
+};
+
 
 export const getRoleList = (data: any) => {
     return Axios.get(`${BaseUrl}work/`, {

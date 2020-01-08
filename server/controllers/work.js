@@ -57,5 +57,56 @@ module.exports = {
       // 没有登录态则跳转到错误页面
       ctx.body = result
     }
+  },
+  //更新修改
+  async  updateProduct(ctx){
+    ctx.body = ctx
+    let data = ctx.request.body
+    // 判断是否有session
+    if (ctx.session && ctx.session.isLogin && ctx.session.userName) {
+      let userResult = await workCode.updateProduct(data)
+      
+      if(userResult==true){
+        userCode.DODE_MEAGESS['success'] = true
+        userCode.DODE_MEAGESS['code'] = 200
+        ctx.body = userCode.DODE_MEAGESS
+      }else{
+        let result = {
+          success: false,
+          message: '更新失败',
+          data: null,
+          code: '304'
+        }
+        // 没有登录态则跳转到错误页面
+        ctx.body = result
+      }
+    } else {
+      let result = {
+        success: false,
+        message: userCode.FAIL_USER_NO_LOGIN,
+        data: null,
+        code: '304'
+      }
+      // 没有登录态则跳转到错误页面
+      ctx.body = result
+    }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

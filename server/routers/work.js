@@ -9,6 +9,7 @@ const controller = require('./../controllers/work')
 const routers = router
   .get('/', controller.indexPage)
   .post('/work/delProduct', controller.delProduct)
+  .post('/work/updateProduct', controller.updateProduct)
 
 
 module.exports = routers

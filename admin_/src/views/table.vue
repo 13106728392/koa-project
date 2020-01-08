@@ -19,16 +19,25 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <ChangeTable :dialogVisible="dialogVisible" :changeObj="changeObj" v-if="dialogVisible" @closeChange="closeChange()" @getTableList="getTableList"></ChangeTable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { work, delProduct } from "../api/admin";
+import ChangeTable from "../components/changeTable.vue";
 
-@Component
+@Component({  //是在这里引入组件的
+  components: {
+    ChangeTable
+  }
+})
 export default class tableList extends Vue {
   public tableData: Array<object> = [];
+  public dialogVisible: boolean = false;
+  public changeObj: object = {};
 
   mounted(): void {
     this.getTableList();
@@ -55,7 +64,14 @@ export default class tableList extends Vue {
 
     // debugger
   }
-  change(val: object) {}
+  change(val: any) {
+    this.dialogVisible = true
+    this.changeObj = val;
+  }
+  closeChange() {
+    this.dialogVisible = false
+    this.changeObj = {};
+  }
   pageInit() {}
 }
 </script>

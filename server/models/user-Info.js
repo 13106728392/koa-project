@@ -137,8 +137,21 @@ const user = {
   },
 
 
-
-
+  /**
+   * 修改商品
+   * @param  {string} 修改项
+   * @return {object|null}     查找结果
+   */
+  async updateProduct(Product,ProductID) {
+    console.log(Product,ProductID)
+    let result = await dbUtils.updateData('product_info',Product, ProductID)
+    if(result.affectedRows==0){
+      result = null
+    }else{
+      result =true
+    }
+    return result
+  },
 
 }
 
