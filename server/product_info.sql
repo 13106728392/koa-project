@@ -1,19 +1,3 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : root
- Source Server Type    : MySQL
- Source Server Version : 80016
- Source Host           : localhost:3306
- Source Schema         : myapptest
-
- Target Server Type    : MySQL
- Target Server Version : 80016
- File Encoding         : 65001
-
- Date: 06/01/2020 16:18:42
-*/
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -29,8 +13,8 @@ CREATE TABLE `product_info`  (
   `product_description` varchar(64) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '' COMMENT '描述',
   `product_icon` varchar(512) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '小图',
   `category_type` varchar(512) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL COMMENT '类目编号',
-  `create_time` timestamp(0) DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp(0) DEFAULT NULL COMMENT '修改时间',
+  `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   `width` double DEFAULT NULL COMMENT '宽度',
   `height` double DEFAULT NULL COMMENT '高度',
   PRIMARY KEY (`product_id`) USING BTREE
